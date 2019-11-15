@@ -40,11 +40,23 @@ Le client souhaite retrouver facilement des recettes qu'il a déjà utilisé.
 ## Livrable
 Répertoire contenant le script docker-compose et les données nécessaires à une initialisation de l'application.
 
-### Execution du projet
-Dans le repertoire principal, exécuter la commande :
+Lors des mises à jours, l'administrateur du système devra suivre la procédure suivante :
+
+Stopper les services
+```
+docker-compose down
+```
+
+Télécharger les mises à jours
+```
+git pull
+```
+
+Redémarrer les services
 ```
 docker-compose up
 ```
+
 
 L'application est accessible à l'adresse [http://localhost:8080](http://localhost:8080). La base de données est accessible sur le port **5432** et l'interface graphique d'administration de la base de données [phpPgAdmin](http://phppgadmin.sourceforge.net/doku.php) est accessible à l'adresse [http://localhost:8081](http://localhost:8081)
 
