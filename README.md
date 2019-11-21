@@ -92,3 +92,18 @@ Notation (__#rct_id__, __#uti_login__, note)
 
 Besoin (__#uni_label__, __#igd_label__, __#rct_id__, quantite)
 
+## Contraintes particulières 
+
+Les champs textes uniques (uti_login, cat_label, uni_label) sont uniques sans prendre en compte la casse. 
+
+uti_login peut être composé de lettres, de chiffres ou des caractères ‘_’ et ‘-’.
+uti_login a une taille comprise entre 4 et 16 caractères
+
+uti_pass a une taille stricte de 60 caractères.
+
+L'utilisateur doit être administrateur (uti_admin à 'true') pour ajouter un ingrédient.
+
+
+Hors base de données :
+
+Le mot de passe fait au moins 8 caracteres
