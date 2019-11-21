@@ -70,3 +70,21 @@ L'application est accessible à l'adresse [http://localhost:8080](http://localho
 
 [Google Sheets avec commentaires](https://docs.google.com/spreadsheets/d/1fnws_vEczwz3d9ZZ9UqP-FuI7gndi-n4DS-rq88Zrps/edit?usp=sharing)
 
+## Modèle relationnel (MLD)
+
+Utilisateur (__uti_login__, uti_mail, uti_nom, uti_prenom, uti_pass, uti_admin, uti_avatar)
+
+Unite (__uni_label__, uni_short_label)
+
+Categorie (__cat_label__, cat_description, cat_illustration)
+
+Recette (__rct_id__, #uti_login, #cat_label, rct_date, rct_titre, rct_description, rct_temps_preparation, rct_temps_cuisson, rct_temps_repos, rct_difficulte, rct_cout, rct_illustration, rct_nb_personnes)
+
+Commentaire (__com_id__, #uti_login, #rct_id, com_texte, com_date)
+
+Ingredient (__igd_label__, #uti_login, igd_description, igd_illustration)
+
+Notation (__#rct_id__, __#uti_login__, note)
+
+Besoin (__#uni_label__, __#igd_label__, __#rct_id__, quantite)
+
