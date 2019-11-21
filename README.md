@@ -107,3 +107,10 @@ L'utilisateur doit être administrateur (uti_admin à 'true') pour ajouter un in
 Hors base de données :
 
 Le mot de passe fait au moins 8 caracteres
+
+## Liste des fonctionnalités (en base de données)
+
+Trois fonctionnalités majeures seront implémentées :
+- Le classement des utilisateurs en fonction du nombre de recettes qu'ils postent durant une certaine période
+- Le classement des utilisateurs qui mettent le plus de mauvaises notes
+- Une suggestion de menu aléatoire (composé d'une entrée, d'un plat et d'un dessert)
