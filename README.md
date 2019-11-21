@@ -70,6 +70,10 @@ L'application est accessible à l'adresse [http://localhost:8080](http://localho
 
 [Google Sheets avec commentaires](https://docs.google.com/spreadsheets/d/1fnws_vEczwz3d9ZZ9UqP-FuI7gndi-n4DS-rq88Zrps/edit?usp=sharing)
 
+## Modèle entité association
+
+![Alt text](documents/mea.png?raw=true "MEA")
+
 ## Modèle relationnel (MLD)
 
 Utilisateur (__uti_login__, uti_mail, uti_nom, uti_prenom, uti_pass, uti_admin, uti_avatar)
