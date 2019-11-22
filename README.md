@@ -44,24 +44,39 @@ Le client souhaite retrouver facilement des recettes qu'il a déjà utilisé.
 
 
 ## Livrable
-Répertoire contenant le script docker-compose et les données nécessaires à une initialisation de l'application.
+Répertoire contenant un script d'installation shell, le fichier docker-compose et les données nécessaires à une initialisation de l'application.
 
-Lors des mises à jours, l'administrateur du système devra suivre la procédure suivante :
+Lors d'une mise à jour ou installation, l'administrateur devra :
 
-Stopper les services
+Exporter la base de données au besoin (depuis phpPgAdmin par exemple) 
+
+Eteindre les éventuels services
 ```
 docker-compose down
 ```
 
-Télécharger les mises à jours
+Récupérer les données depuis le dépôt git 
 ```
 git pull
 ```
 
-Redémarrer les services
+Donner les droits d'exécution au script d'installation 'install.sh'
+```
+chmod +x install.sh
+```
+
+Exécuter les script 'install.sh' avec les droits root.
+```
+sudo ./install.sh
+```
+
+Lancer l'application avec 
 ```
 docker-compose up
 ```
+
+Eventuellement réimporter les données précédemment sauvegardées
+
 
 
 L'application est accessible à l'adresse [http://localhost:8080](http://localhost:8080). La base de données est accessible sur le port **5432** et l'interface graphique d'administration de la base de données [phpPgAdmin](http://phppgadmin.sourceforge.net/doku.php) est accessible à l'adresse [http://localhost:8081](http://localhost:8081)
