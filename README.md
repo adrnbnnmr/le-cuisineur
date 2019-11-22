@@ -85,6 +85,10 @@ L'application est accessible à l'adresse [http://localhost:8080](http://localho
 
 [Google Sheets avec commentaires](https://docs.google.com/spreadsheets/d/1fnws_vEczwz3d9ZZ9UqP-FuI7gndi-n4DS-rq88Zrps/edit?usp=sharing)
 
+## Modèle entité association
+
+![Alt text](documents/mea.png?raw=true "MEA")
+
 ## Modèle relationnel (MLD)
 
 Utilisateur (__uti_login__, uti_mail, uti_nom, uti_prenom, uti_pass, uti_admin, uti_avatar)
@@ -103,3 +107,25 @@ Notation (__#rct_id__, __#uti_login__, note)
 
 Besoin (__#uni_label__, __#igd_label__, __#rct_id__, quantite)
 
+## Contraintes particulières 
+
+Les champs textes uniques (uti_login, cat_label, uni_label) sont uniques sans prendre en compte la casse. 
+
+uti_login peut être composé de lettres, de chiffres ou des caractères ‘_’ et ‘-’.
+uti_login a une taille comprise entre 4 et 16 caractères
+
+uti_pass a une taille stricte de 60 caractères.
+
+L'utilisateur doit être administrateur (uti_admin à 'true') pour ajouter un ingrédient.
+
+
+Hors base de données :
+
+Le mot de passe fait au moins 8 caracteres
+
+## Liste des fonctionnalités (en base de données)
+
+Trois fonctionnalités majeures seront implémentées :
+- Le classement des utilisateurs en fonction du nombre de recettes qu'ils postent durant une certaine période
+- Le classement des utilisateurs qui mettent le plus de mauvaises notes
+- Une suggestion de menu aléatoire (composé d'une entrée, d'un plat et d'un dessert)
