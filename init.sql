@@ -42,8 +42,8 @@ CREATE TABLE UTILISATEUR (
 );
 
 CREATE TABLE UNITE (
-    uni_label VARCHAR(16) UNIQUE NOT NULL, -- Nom de l’unite de mesure en toute lettre
-    uni_short_label VARCHAR(32) NOT NULL, -- Unite de mesure sous forme simplifiee -- ex: kg
+    uni_label VARCHAR(32) UNIQUE NOT NULL, -- Nom de l’unite de mesure en toute lettre
+    uni_short_label VARCHAR(16) NOT NULL, -- Unite de mesure sous forme simplifiee -- ex: kg
     CONSTRAINT PK_UNITE PRIMARY KEY (uni_label)
 );
 
@@ -118,3 +118,50 @@ CREATE TABLE BESOIN (
 );
 
 -----
+
+
+
+-------------- Insertion de données pour les tests ----------
+INSERT INTO UNITE (uni_label, uni_short_label)
+VALUES
+    ('Cuillère à café', 'C.à.C'),
+    ('Cuillère à soupe', 'C.à.S'),
+    ('Kilogramme', 'Kg'),
+    ('Gramme', 'g'),
+    ('Litre', 'L'),
+    ('Millilitre', 'mL'),
+    ('Unité', '');
+
+INSERT INTO UTILISATEUR (uti_login, uti_mail, uti_nom, uti_prenom, uti_pass, uti_admin)
+VALUES
+    ('Chaumz', 'test@test.fr', 'chaumard', 'bastien', '', DEFAULT);
+
+INSERT INTO INGREDIENT (igd_label, igd_description, igd_illustration, uti_login)
+VALUES
+    ('citron', 'fruit jaune et acide', 'citron.jpg', 'Chaumz'),
+    ('asperge', 'légume detox poussant sous terre', 'asperge.jpg', 'Chaumz'),
+    ('basilic', 'herbe aromatique délicatement parfumée', 'basilic.jpg', 'Chaumz'),
+    ('chocolat', 'inutile de le presenter !', 'chocolat.jpg', 'Chaumz'),
+    ('dinde', 'viande blanche et charnue', 'dinde.jpg', 'Chaumz'),
+    ('estragon', 'herbe aromatique', 'estragon.jpg', 'Chaumz'),
+    ('fraise', 'fruit rouge gorgé de sucre', 'fraise.jpg', 'Chaumz'),
+    ('girolle', 'champignon apprécié des connaisseurs', 'girolle.jpg', 'Chaumz'),
+    ('homard', 'crustacé raffiné', 'homard.jpg', 'Chaumz'),
+    ('lait', 'liquide d origine animale', 'lait.jpg', 'Chaumz'),
+    ('myrtille', 'fruit bleu d été', 'myrtille.jpg', 'Chaumz'),
+    ('noix', 'fruit à coque plein de vertus', 'noix.jpg', 'Chaumz'),
+    ('oignon', 'condiment utilisé dans beaucoup de plats salés', 'oignon.jpg', 'Chaumz'),
+    ('pomme de terre', 'tubercule bon marché et nourissant', 'pommedeterre.jpg', 'Chaumz'),
+    ('romarin', 'herbe aromatique provençale', 'romarin.jpg', 'Chaumz'),
+    ('saumon', 'poisson gras à chair rouge', 'saumon.jpg', 'Chaumz'),
+    ('truffe', 'champignon rare et cher', 'truffe.jpg', 'Chaumz'),
+    ('violette', 'fleur', 'violette.jpg', 'Chaumz'),
+    ('sucre', 'extrêmement sucré', 'sucre.jpg', 'Chaumz');
+
+INSERT INTO CATEGORIE (cat_label, cat_description, cat_illustration)
+VALUES
+    ('Entrée', 'Rien de tel qu une bonne entree pour mettre l eau à la bouche', 'entree.jpg'),
+    ('Plat', 'Copieux ou léger, l important est de se regaler', 'plat.jpg'),
+    ('Dessert', 'Les gourmands seront ravis', 'dessert.jpg'),
+    ('Apéritif', 'Faites festoyer votre panse', 'aperitif.jpg'),
+    ('En-cas', 'Pour les petits creux', 'encas.jpg');
