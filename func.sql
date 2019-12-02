@@ -18,57 +18,74 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION rctHasard($cat) 
-RETURN TABLE(
-    rct_label
-)
-
-CREATE OR REPLACE FUNCTION menu() 
-RETURNS TABLE(
-    rct_label
-
-) 
-AS $$
-
-BEGIN
-    RETURN QUERY EXECUTE(
-        'SELECT uti_login, count(note) as nbNotes
-        FROM NOTATION 
-        WHERE note <= 1
-        GROUP BY uti_login'
-    );
-END;
-$$ LANGUAGE plpgsql;
 
 
 
 
+------------------- NOT WORKING-----------------------------
+-- CREATE OR REPLACE FUNCTION rctHasard($cat) 
+-- RETURN TABLE(
+--     uti_login varchar, 
+--     cat_label varchar, 
+--     rct_date timestamp, 
+--     rct_titre varchar, 
+--     rct_description text, 
+--     rct_temps_preparation smallint, 
+--     rct_temps_cuisson smallint, 
+--     rct_temps_repos smallint, 
+--     rct_difficulte smallint, 
+--     rct_cout smallint, 
+--     rct_illustration varchar, 
+--     rct_nb_personnes smallint
+-- )
+-- AS $$
+
+-- BEGIN
+--     RETURN QUERY EXECUTE(
+--         'SELECT uti_login, cat_label, rct_date, rct_titre, rct_description, 
+--         rct_temps_preparation, rct_temps_cuisson, rct_temps_repos, 
+--         rct_difficulte, rct_cout, rct_illustration, rct_nb_personnes
+--         FROM RECETTE
+--         WHERE cat_label = $cat'
+--     );
+-- END;
+-- $$ LANGUAGE plpgsql;
 
 
 
-SELECT uti_login FROM UTILISATEUR u
-WHERE uti_login in (SELECT uti_login from NOTATION WHERE note <= 1)
+-- CREATE OR REPLACE FUNCTION menu() 
+-- RETURNS TABLE(
+--     uti_login varchar, 
+--     cat_label varchar, 
+--     rct_date timestamp, 
+--     rct_titre varchar, 
+--     rct_description text, 
+--     rct_temps_preparation smallint, 
+--     rct_temps_cuisson smallint, 
+--     rct_temps_repos smallint, 
+--     rct_difficulte smallint, 
+--     rct_cout smallint, 
+--     rct_illustration varchar, 
+--     rct_nb_personnes smallint
 
-
-INNER JOIN NOTATION n ON u.uti_login = n.uti_login
-WHERE (SELECT COUNT )
-
-
-
--- CREATE OR REPLACE FUNCTION get_film (p_pattern VARCHAR) 
---    RETURNS TABLE (
---       film_title VARCHAR,
---       film_release_year INT
 -- ) 
 -- AS $$
+
 -- BEGIN
---    RETURN QUERY SELECT
---       title,
---       cast( release_year as integer)
---    FROM
---       film
---    WHERE
---       title ILIKE p_pattern ;
--- END; $$ 
- 
--- LANGUAGE 'plpgsql';
+--     RETURN QUERY EXECUTE(
+--         'SELECT rctHasard("entrée")
+--         UNION ALL
+--         SELECT rctHasard("plat")
+--         UNION ALL
+--         SELECT rctHasard("dessert")'
+--     );
+-- END;
+-- $$ LANGUAGE plpgsql;
+
+
+
+
+
+
+
+
