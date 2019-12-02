@@ -1,0 +1,64 @@
+$height: 80px;
+$width: 100%;
+
+.header {
+    width: $width;
+    height: $height;
+
+    position: sticky;
+    background: rgb(252, 124, 38);
+    top: 0;
+    left: 0;
+    padding: 0;
+
+    display: flex;
+
+
+    .header__logo {
+        width: 180px;
+        height: 70px;
+        padding: 5px;
+        display: block;
+
+        flex: 0 0 auto;
+
+        >img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .header__navigation {
+        flex: 1 1 auto;
+
+        .header__navlist {
+            display: flex;
+            height: 70px;
+            margin: 0;
+            padding: 5px 15px 0;
+            max-width: 1000px;
+
+            .header__navelement {
+                flex: 1 1 auto;
+                margin: 0 4px;
+                display: block;
+                text-align: center;
+                line-height: 70px;
+
+
+                .header__navlink {
+                    display: block;
+                    text-align: center;
+                    line-height: 70px;
+                    height: 100%;
+                    width: 100%;
+                    outline: rgba(255, 255, 255, .3) solid 1px;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 600;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
