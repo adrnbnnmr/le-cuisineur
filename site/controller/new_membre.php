@@ -10,9 +10,8 @@ try {
     Utilisateur::register($_POST);
 
     //POUR LA DEMO: enregistre l'utilisateur en session
-    $i = session_start();
+    session_start();
 
-    var_dump($i);
     $_SESSION["utilisateur"] = $_POST["login"];
 
     exit(json_encode(["success" => true, "message" => $_POST["login"]]));

@@ -1,3 +1,6 @@
+\c lecuisineur;
+
+
 CREATE OR REPLACE FUNCTION badusers() 
 RETURNS TABLE(
     login_utilisateur varchar,

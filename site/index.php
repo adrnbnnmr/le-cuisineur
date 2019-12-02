@@ -39,9 +39,9 @@ require_once 'util/session.php';
 	<? // Suggestion de menu
 	?>
 	<article class="menu_aleatoire">
-		<?= Recette::get_test_recette()->to_info_HTML() ?>
-		<?= Recette::get_test_recette()->to_info_HTML() ?>
-		<?= Recette::get_test_recette()->to_info_HTML() ?>
+		<?= Recette::get_random_recette('Entrée')->to_info_HTML() ?>
+		<?= Recette::get_random_recette('Plat')->to_info_HTML() ?>
+		<?= Recette::get_random_recette('Dessert')->to_info_HTML() ?>
 	</article>
 	<? //endmain
 	?>

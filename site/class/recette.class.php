@@ -47,6 +47,25 @@ class Recette
         return new Recette($data);
     }
 
+
+    public static function get_random_recette(string $cat = "all")
+    {
+        $pdo = get_pdo_connection();
+
+        if ($cat === "all") {
+            $stmt = $pdo->prepare("SELECT * FROM RECETTE");
+            $stmt->execute();
+        } else {
+            $stmt = $pdo->prepare("SELECT * FROM RECETTE WHERE cat_label = ?");
+            $stmt->execute([$cat]);
+        }
+
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $random_row = array_rand($data);
+
+        return new Recette($data[$random_row]);
+    }
+
     public static function get_test_recette()
     {
         return new Recette(['test' => '']);
@@ -74,17 +93,10 @@ class Recette
         } else {
 
             // Recuperer les instances de l'auteur et de la categorie
-            try {
-                $this->auteur = Utilisateur::get_utilisateur($data['uti_login']);
-            } catch (Exception $e) {
-                throw new Exception("L'auteur de la recette n'existe pas. rct_id:{$data['rct_id']}, uti_login:{$data['uti_login']}");
-            }
+            $this->auteur = $data['uti_login'];
 
-            try {
-                $this->categorie = Categorie::get_categorie($data['cat_label']);
-            } catch (Exception $e) {
-                throw new Exception("La categorie de la recette n'existe pas. rct_id:{$data['rct_id']}, cat_id:{$data['cat_id']}");
-            }
+            $this->categorie = $data['cat_label'];
+
             // Le fichier existe-t-il ?
             if (!file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $data['rct_illustration'])) {
                 throw new Exception("Le fichier image n'existe pas pour la recette : rct_id:{$data['rct_id']}, rct_illustration:{$data['rct_illustration']}");
@@ -131,15 +143,15 @@ class Recette
 				<ul class='inforecette__stats stats'>
 					<li class="stats__element">
                         <div class="stats__label">Difficulte</div>
-                        <meter value="{$this->difficulte}" min="1" max="5"></meter>
+                        <meter value="{$this->difficulte}" min="0" max="5"></meter>
                     </li>
 					<li class="stats__element">
                         <div class="stats__label">Cout</div>
-                        <meter value="{$this->cout}" min="1" max="3" low="1" high="3"></meter>
+                        <meter value="{$this->cout}" min="0" max="3" low="1" high="3"></meter>
                     </li>
 					<li class="stats__element">
                         <div class="stats__label">Note</div>
-                        <meter value="{$this->note}" min="1" max="5"></meter>
+                        <meter value="{$this->note}" min="0" max="5"></meter>
                     </li>
 				</ul>
 			</div>

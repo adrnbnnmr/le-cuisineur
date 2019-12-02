@@ -14,7 +14,8 @@ services:
         volumes:
             - ./docker/postgres/logs:/var/log/postgresql
             - ./docker/postgres/datas:/var/lib/postgresql/data
-            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./init.sql:/docker-entrypoint-initdb.d/001init.sql
+            - ./func.sql:/docker-entrypoint-initdb.d/functions.sql
         ports:
             - 5432:5432
         environment:

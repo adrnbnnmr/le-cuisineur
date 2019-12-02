@@ -134,7 +134,8 @@ VALUES
 
 INSERT INTO UTILISATEUR (uti_login, uti_mail, uti_nom, uti_prenom, uti_pass, uti_admin)
 VALUES
-    ('Chaumz', 'test@test.fr', 'chaumard', 'bastien', '', DEFAULT);
+    ('Chaumz', 'test@test.fr', 'chaumard', 'bastien', '', DEFAULT),
+    ('mamiesupernova', 'mamie@supernova.fr', 'mamie', 'supernova', '', DEFAULT);
 
 INSERT INTO INGREDIENT (igd_label, igd_description, igd_illustration, uti_login)
 VALUES
@@ -165,3 +166,27 @@ VALUES
     ('Dessert', 'Les gourmands seront ravis', 'dessert.jpg'),
     ('Apéritif', 'Faites festoyer votre panse', 'aperitif.jpg'),
     ('En-cas', 'Pour les petits creux', 'encas.jpg');
+
+INSERT INTO RECETTE ( 
+    rct_titre,
+    rct_description,
+    rct_temps_preparation,
+    rct_temps_cuisson,
+    rct_temps_repos,
+    rct_difficulte,
+    rct_cout,
+    rct_illustration,
+    rct_nb_personnes,
+    rct_note,
+    cat_label,
+    uti_login
+    ) VALUES 
+    ('Blinis facile maison', '', 5, 20, 0, 1, 1, '', 4, 5, 'Entrée', 'mamiesupernova'),
+    ('Quiche tatin', '', 15, 30, 10, 1, 1, '', 6, 4, 'Entrée', 'mamiesupernova'),
+    ('Nems (frits)', '', 45, 50, 5, 3, 2, '', 6, 5, 'Entrée', 'Chaumz'),
+    ('Riz', '', 2, 13, 0, 1, 1,  '', 1, 1, 'Plat', 'Chaumz'),
+    ('Boeuf de Kobe et ses accompagnements', '', 15, 1, 0, 2, 3, '', 2, 5, 'Plat', 'mamiesupernova'),
+    ('Pomme', '', 0, 0, 0, 1, 1, '', 1, 1, 'Dessert', 'Chaumz'),
+    ('Tiramisu', '', 15, 0, 0, 1, 1, '', 2, 5, 'Dessert', 'mamiesupernova');
+     
+
