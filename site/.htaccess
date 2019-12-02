@@ -1,0 +1,42 @@
+DirectorySlash Off
+Options FollowSymLinks Indexes
+DirectoryIndex index.php
+
+RewriteEngine on
+
+# /recette/{id}
+RewriteRule  ^recette/(.+)$ recette.php
+# /recettes
+RewriteRule  ^recettes$ recettes.php
+
+# /membre/{id} 
+RewriteRule  ^membre/([a-zA-Z0-9\-\_]{4-16})$ membre.php?login=$1
+# /membre/new
+RewriteRule ^membre/new$ controller/new_membre.php
+# /membres
+RewriteRule  ^membres$ membres.php
+
+# /profil
+RewriteRule  ^profil$ profil.php
+
+# /connexion
+RewriteRule ^connexion$ connexion.php
+
+# /inscription
+RewriteRule ^inscription$ inscription.php
+
+# /backoffice
+RewriteRule ^backoffice$ backoffice.php
+#RewriteRule ^image/original/(.*)$ img/originals/$1
+
+
+
+
+
+RewriteCond %{REQUEST_FILENAME}  -d
+RewriteRule  ^.*$  -  [L]
+
+RewriteCond %{REQUEST_FILENAME}  -f
+RewriteRule  ^.*$  -  [L]
+
+ErrorDocument 404 /e404.php 

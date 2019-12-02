@@ -1,0 +1,84 @@
+@import 'parts/header';
+
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background: lightgrey;
+
+    >* {
+        width: 800px;
+        background: white;
+        margin: auto;
+        padding: 20px;
+    }
+}
+
+.inscription {
+    .inscription__row>label {
+        min-width: 200px;
+        display: inline-block;
+    }
+
+    .inscription__row>input {
+        min-width: 250px;
+        display: inline-block;
+    }
+}
+
+.inforecette {
+    width: 100%;
+    height: 200px;
+    border: lightgray 1px solid;
+    display: flex;
+
+    .inforecette__picture {
+        display: block;
+        height: 100%;
+        width: 200px;
+        flex: 0 0 auto;
+
+        >img {
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .inforecette__data {
+        flex: 1 1 auto;
+        padding: 5px 15px;
+        .inforecette__titre {
+            font-size: 1.1em;
+        }
+        .inforecette__auteur { 
+            font-size: .8em;
+        }
+        .inforecette__temps {
+            width: 100%;
+            display: flex;
+            >li {
+                width: 33.33%;
+                display: block;
+            }
+            padding: 0;
+        }
+        .inforecette__stats {
+            padding: 0;
+        }
+    }
+}
+
+.stats {
+    display: flex;
+
+    .stats__element {
+        display: block;
+        width: 33.33%;
+
+        .stats__label {}
+    }
+}

@@ -1,0 +1,123 @@
+.header {
+  width: 100%;
+  height: 80px;
+  position: sticky;
+  background: #fc7c26;
+  top: 0;
+  left: 0;
+  padding: 0;
+  display: flex;
+}
+.header .header__logo {
+  width: 180px;
+  height: 70px;
+  padding: 5px;
+  display: block;
+  flex: 0 0 auto;
+}
+.header .header__logo > img {
+  height: 100%;
+  width: 100%;
+}
+.header .header__navigation {
+  flex: 1 1 auto;
+}
+.header .header__navigation .header__navlist {
+  display: flex;
+  height: 70px;
+  margin: 0;
+  padding: 5px 15px 0;
+  max-width: 1000px;
+}
+.header .header__navigation .header__navlist .header__navelement {
+  flex: 1 1 auto;
+  margin: 0 4px;
+  display: block;
+  text-align: center;
+  line-height: 70px;
+}
+.header .header__navigation .header__navlist .header__navelement .header__navlink {
+  display: block;
+  text-align: center;
+  line-height: 70px;
+  height: 100%;
+  width: 100%;
+  outline: rgba(255, 255, 255, 0.3) solid 1px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: lightgrey;
+}
+body > * {
+  width: 800px;
+  background: white;
+  margin: auto;
+  padding: 20px;
+}
+
+.inscription .inscription__row > label {
+  min-width: 200px;
+  display: inline-block;
+}
+.inscription .inscription__row > input {
+  min-width: 250px;
+  display: inline-block;
+}
+
+.inforecette {
+  width: 100%;
+  height: 200px;
+  border: lightgray 1px solid;
+  display: flex;
+}
+.inforecette .inforecette__picture {
+  display: block;
+  height: 100%;
+  width: 200px;
+  flex: 0 0 auto;
+}
+.inforecette .inforecette__picture > img {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.inforecette .inforecette__data {
+  flex: 1 1 auto;
+  padding: 5px 15px;
+}
+.inforecette .inforecette__data .inforecette__titre {
+  font-size: 1.1em;
+}
+.inforecette .inforecette__data .inforecette__auteur {
+  font-size: 0.8em;
+}
+.inforecette .inforecette__data .inforecette__temps {
+  width: 100%;
+  display: flex;
+  padding: 0;
+}
+.inforecette .inforecette__data .inforecette__temps > li {
+  width: 33.33%;
+  display: block;
+}
+.inforecette .inforecette__data .inforecette__stats {
+  padding: 0;
+}
+
+.stats {
+  display: flex;
+}
+.stats .stats__element {
+  display: block;
+  width: 33.33%;
+}
+
+/*# sourceMappingURL=global.css.map */
